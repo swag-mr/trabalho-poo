@@ -30,7 +30,7 @@ public class DataBaseFuncs {
     }
     
     public ArrayList<Funcionario> getFuncionariosGastoEspecifico(int ini, int fim){
-        ArrayList<Funcionario> funcionariosGastoEspecifico = new ArrayList<Funcionario>();
+        ArrayList<Funcionario> funcionariosGastoEspecifico = new ArrayList<>();
         for(int i=0; i < cont; i++){
             if(ini <= funcionarios[i].calcularSalario() && funcionarios[i].calcularSalario() <= fim){
                 funcionariosGastoEspecifico.add(funcionarios[i].clone());
@@ -48,7 +48,7 @@ public class DataBaseFuncs {
     }
     
     public ArrayList<Funcionario> getFuncionarios(){
-        ArrayList<Funcionario> funcionariosList = new ArrayList<Funcionario>();
+        ArrayList<Funcionario> funcionariosList = new ArrayList<>();
         for(int i=0; i < cont; i++){
             funcionariosList.add(this.funcionarios[i].clone());
         }
@@ -60,7 +60,7 @@ public class DataBaseFuncs {
     }
     
     public ArrayList<Funcionario> getTecnicos(){
-        ArrayList<Funcionario> tecnicos = new ArrayList<Funcionario>();
+        ArrayList<Funcionario> tecnicos = new ArrayList<>();
         for(int i=0; i < cont; i++){
             if(funcionarios[i].getTipo().equals(Constantes.TECNICO)){
                 tecnicos.add(funcionarios[i].clone());
@@ -71,7 +71,7 @@ public class DataBaseFuncs {
     }
     
     public ArrayList<Funcionario> getDocentes(){
-        ArrayList<Funcionario> docentes = new ArrayList<Funcionario>();
+        ArrayList<Funcionario> docentes = new ArrayList<>();
         for(int i=0; i < cont; i++){
             if(funcionarios[i].getTipo().equals(Constantes.DOCENTE_EFETIVO) || funcionarios[i].getTipo().equals(Constantes.DOCENTE_SUBSTITUTO)){
                 docentes.add(funcionarios[i].clone());
@@ -81,7 +81,7 @@ public class DataBaseFuncs {
     }
     
     public ArrayList<Funcionario> getDocentesEfetivos(){
-        ArrayList<Funcionario> docentesEfetivos = new ArrayList<Funcionario>();
+        ArrayList<Funcionario> docentesEfetivos = new ArrayList<>();
         for(int i=0; i < cont; i++){
             if(funcionarios[i].getTipo().equals(Constantes.DOCENTE_EFETIVO)){
                 docentesEfetivos.add(funcionarios[i].clone());
@@ -91,7 +91,7 @@ public class DataBaseFuncs {
     }
     
     public ArrayList<Funcionario> getDocentesSubstitutos(){
-        ArrayList<Funcionario> docentesSubstitutos = new ArrayList<Funcionario>();
+        ArrayList<Funcionario> docentesSubstitutos = new ArrayList<>();
         for(int i=0; i < cont; i++){
             if(funcionarios[i].getTipo().equals(Constantes.DOCENTE_SUBSTITUTO)){
                 docentesSubstitutos.add(funcionarios[i].clone());

@@ -16,6 +16,14 @@ import java.util.ArrayList;
 public class Controlador {
     private Universidade universidade = new Universidade("UNESP");
     
+    public void setNomeUniversidade(String nome){
+        universidade.setNome(nome);
+    }
+    
+    public String getNomeUniversidade(){
+        return universidade.getNome();
+    }
+    
     public void addDepto(String codigo, String nome){
         universidade.addDepto(codigo, nome);
     }
@@ -34,6 +42,10 @@ public class Controlador {
     
     public ArrayList<Departamento> getDeptos(){
         return universidade.getDeptos();
+    }
+    
+    public ArrayList<Departamento> getDeptoGastoEspecifico(int ini, int fim){
+        return universidade.getDeptosFaixaEspecifica(ini, fim);
     }
     
     public ArrayList<Funcionario> getTodosFuncionarios(){

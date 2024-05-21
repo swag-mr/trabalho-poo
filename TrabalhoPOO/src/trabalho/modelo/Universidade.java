@@ -15,8 +15,20 @@ public class Universidade {
     private static String nome;
     private DataBaseDeptos db = new DataBaseDeptos();
     
+    public Universidade(){
+        this.nome = "Unesp";
+    }
+    
     public Universidade(String nome){
 	this.nome = nome;
+    }
+
+    public static String getNome() {
+        return nome;
+    }
+
+    public static void setNome(String nome) {
+        Universidade.nome = nome;
     }
     
     public void addDepto(String codigo, String nome){
@@ -71,7 +83,7 @@ public class Universidade {
     }
     
     public ArrayList<Departamento> getDeptosFaixaEspecifica(int ini, int fim){
-        ArrayList<Departamento> departamentos = new ArrayList<Departamento>();
+        ArrayList<Departamento> departamentos = new ArrayList<>();
         departamentos = db.getDeptosFaixaEspecifica(ini, fim);
         return departamentos;
     }

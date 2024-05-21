@@ -30,7 +30,7 @@ public class DataBaseDeptos {
     }
     
     public ArrayList<Departamento> getDeptos(){
-        ArrayList<Departamento> departamentosList = new ArrayList<Departamento>();
+        ArrayList<Departamento> departamentosList = new ArrayList<>();
         for(int i=0; i < cont; i++){
             departamentosList.add(departamentos[i].clone());
         }
@@ -54,7 +54,7 @@ public class DataBaseDeptos {
     }
     
     public ArrayList<Departamento> getDeptosFaixaEspecifica(int ini, int fim){
-        ArrayList<Departamento> departamentosFaixaEspecifica = new ArrayList<Departamento>();
+        ArrayList<Departamento> departamentosFaixaEspecifica = new ArrayList<>();
         for(int i=0; i < cont; i++){
             if(ini <= departamentos[i].getGastosTotais() && departamentos[i].getGastosTotais() <= fim){
                 departamentosFaixaEspecifica.add(departamentos[i].clone());
