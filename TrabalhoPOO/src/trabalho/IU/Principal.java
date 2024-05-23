@@ -9,5 +9,10 @@ package trabalho.IU;
  * @author vitor
  */
 public class Principal {
-    
+    public static void main(String[] args){
+        IUPrincipal principal = new IUPrincipal();
+        principal.setVisible(true);
+        principal.setTitle("Sistema de Cadastro de Produtos");
+        principal.toFront();
+    }
 }

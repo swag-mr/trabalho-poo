@@ -4,7 +4,7 @@
  */
 package trabalho.modelo;
 
-import trabalho.persistencia.DataBaseDeptos;
+import trabalho.persistencia.DataBase;
 import java.util.ArrayList;
 
 /**
@@ -13,10 +13,10 @@ import java.util.ArrayList;
  */
 public class Universidade {
     private static String nome;
-    private DataBaseDeptos db = new DataBaseDeptos();
+    private DataBase db = new DataBase();
     
     public Universidade(){
-        this.nome = "Unesp";
+        this.nome = "UNESP";
     }
     
     public Universidade(String nome){
@@ -37,28 +37,26 @@ public class Universidade {
     }
     
     public ArrayList<Departamento> getDeptos(){
-        ArrayList<Departamento> departamentos = new ArrayList<Departamento>();
-        departamentos = db.getDeptos();
-        return departamentos;
+        return db.getDeptos();
     }
     
     public ArrayList<Funcionario> getTodosFuncionarios(){
         return db.getTodosFuncionarios();
     }
     
-    public ArrayList<Funcionario> getTodosTecnicos(){
+    public ArrayList<Tecnico> getTodosTecnicos(){
         return db.getTodosTecnicos();
     }
     
-    public ArrayList<Funcionario> getTodosDocentes(){
+    public ArrayList<Docente> getTodosDocentes(){
         return db.getTodosDocentes();
     }
     
-    public ArrayList<Funcionario> getTodosDocentesEfetivos(){
+    public ArrayList<Efetivo> getTodosDocentesEfetivos(){
         return db.getTodosDocentesEfetivos();
     }
     
-    public ArrayList<Funcionario> getTodosDocentesSubstitutos(){
+    public ArrayList<Substituto> getTodosDocentesSubstitutos(){
         return db.getTodosDocentesSubstitutos();
     }
     
@@ -83,20 +81,18 @@ public class Universidade {
     }
     
     public ArrayList<Departamento> getDeptosFaixaEspecifica(int ini, int fim){
-        ArrayList<Departamento> departamentos = new ArrayList<>();
-        departamentos = db.getDeptosFaixaEspecifica(ini, fim);
-        return departamentos;
+        return db.getDeptosFaixaEspecifica(ini, fim);
     }
     
-    public void addTecnico(String codigo, String nome, double salario, String nivel, String funcao, int indice){
-        db.addTecnico(codigo, nome, salario, nivel, funcao, indice);
+    public void addTecnico(String codigo, String nome, double salario, String nivel, String funcao, int indices[]){
+        db.addTecnico(codigo, nome, salario, nivel, funcao, indices);
     }
     
-    public void addDocenteEfetivo(String codigo, String nome, double salario, String nivel, String titulacao, String area, int indice){
-        db.addDocenteEfetivo(codigo, nome, salario, nivel, titulacao, area, indice);
+    public void addDocenteEfetivo(String codigo, String nome, double salario, String nivel, String titulacao, String area, int indices[]){
+        db.addDocenteEfetivo(codigo, nome, salario, nivel, titulacao, area, indices);
     }
     
-    public void addDocenteSubstituto(String codigo, String nome, double salario, String nivel, String titulacao, int cargaHoraria, int indice){
-        db.addDocenteSubstituto(codigo, nome, salario, nivel, titulacao, cargaHoraria, indice);
+    public void addDocenteSubstituto(String codigo, String nome, double salario, String nivel, String titulacao, int cargaHoraria, int indices[]){
+        db.addDocenteSubstituto(codigo, nome, salario, nivel, titulacao, cargaHoraria, indices);
     }
 }

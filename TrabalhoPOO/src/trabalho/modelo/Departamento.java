@@ -5,7 +5,6 @@
 package trabalho.modelo;
 
 import java.util.ArrayList;
-import trabalho.persistencia.DataBaseFuncs;
 
 /**
  *
@@ -14,70 +13,77 @@ import trabalho.persistencia.DataBaseFuncs;
 public class Departamento implements Cloneable {
     private String codigo;
     private String nome;
-    private DataBaseFuncs db = new DataBaseFuncs();
+    private ArrayList<Funcionario> funcionarios;
     
     public Departamento(String codigo, String nome){
 	this.codigo = codigo;
 	this.nome = nome;
+        funcionarios = new ArrayList<>();
     }
     
     public int getNumFuncionarios(){
-        return db.getNumFuncionarios();
+        return funcionarios.size();
     }
     
     public String getCodigo(){
         return codigo;
     }
     
-    public void addTecnico(String codigo, String nome, double salario, String nivel, String funcao){
-        Funcionario t = new Tecnico(codigo, nome, salario, nivel, funcao);
-        db.addFunc(t);
+    public String getNome(){
+        return nome;
     }
     
-    public void addDocenteEfetivo(String codigo, String nome, double salario, String nivel, String titulacao, String area){
-        Funcionario de = new Efetivo(codigo, nome, salario, nivel, titulacao, area);
-        db.addFunc(de);
+    public void addTecnico(Tecnico t){
+        funcionarios.add(t);
     }
     
-    public void addDocenteSubstituto(String codigo, String nome, double salario, String nivel, String titulacao, int cargaHoraria){
-        Funcionario ds = new Substituto(codigo, nome, salario, nivel, titulacao, cargaHoraria);
-        db.addFunc(ds);
+    public void addDocenteEfetivo(Efetivo de){
+        funcionarios.add(de);
+    }
+    
+    public void addDocenteSubstituto(Substituto ds){
+        funcionarios.add(ds);
     }
     
     public double getGastosTotais(){
-        return db.getGastosTotais();
+        int gastoTotal = 0;
+        for(int i=0; i < funcionarios.size(); i++){
+            gastoTotal += funcionarios.get(i).getSalario();
+        }
+        
+        return gastoTotal;
     }
     
     public ArrayList<Funcionario> getFuncionariosGastoEspecifico(int ini, int fim){
-        return db.getFuncionariosGastoEspecifico(ini, fim);
+        ArrayList<Funcionario> funcsGastoEspecifico = new ArrayList<>();
+        for(int i=0; i < funcionarios.size(); i++){
+            if(ini <= funcionarios.get(i).calcularSalario() && funcionarios.get(i).calcularSalario() <= fim){
+                funcsGastoEspecifico.add((Funcionario) funcionarios.get(i).clone());
+            }
+        }
+        return funcsGastoEspecifico;
     }
     
     public ArrayList<Funcionario> getFuncionarios(){
-        return db.getFuncionarios();
-    }
-    
-    public ArrayList<Funcionario> getTecnicos(){
-        return db.getTecnicos();
-    }
-    
-    public ArrayList<Funcionario> getDocentes(){
-        return db.getDocentes();
-    }
-    
-    public ArrayList<Funcionario> getDocentesSubstitutos(){
-        return db.getDocentesSubstitutos();
-    }
-    
-    public ArrayList<Funcionario> getDocentesEfetivos(){
-        return db.getDocentesEfetivos();
+        return (ArrayList<Funcionario>) funcionarios.clone();
     }
     
     public Funcionario buscarFuncCodigo(String codigo) {
-        return db.buscarFuncCodigo(codigo);
+        for(int i=0; i < funcionarios.size(); i++){
+            if(funcionarios.get(i).getCodigo().equals(codigo)){
+                return (Funcionario) funcionarios.get(i).clone();
+            }
+        }
+        return null;
     }
     
     public Funcionario buscarFuncNome(String nome) {
-        return db.buscarFuncNome(nome);
+        for(int i=0; i < funcionarios.size(); i++){
+            if(funcionarios.get(i).getNome().equals(nome)){
+                return (Funcionario) funcionarios.get(i).clone();
+            }
+        }
+        return null;
     }
     
     @Override
