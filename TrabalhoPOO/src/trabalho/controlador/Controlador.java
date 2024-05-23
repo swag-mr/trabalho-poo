@@ -8,13 +8,17 @@ import trabalho.modelo.Universidade;
 import trabalho.modelo.Departamento;
 import trabalho.modelo.Funcionario;
 import java.util.ArrayList;
+import trabalho.modelo.Docente;
+import trabalho.modelo.Efetivo;
+import trabalho.modelo.Substituto;
+import trabalho.modelo.Tecnico;
 
 /**
  *
  * @author vitor
  */
 public class Controlador {
-    private Universidade universidade = new Universidade("UNESP");
+    private Universidade universidade = new Universidade();
     
     public void setNomeUniversidade(String nome){
         universidade.setNome(nome);
@@ -28,16 +32,16 @@ public class Controlador {
         universidade.addDepto(codigo, nome);
     }
     
-    public void addTecnico(String codigo, String nome, double salario, String nivel, String funcao, int indice){ 
-        universidade.addTecnico(codigo, nome, salario, nivel, funcao, indice);
+    public void addTecnico(String codigo, String nome, double salario, String nivel, String funcao, int indices[]){ 
+        universidade.addTecnico(codigo, nome, salario, nivel, funcao, indices);
     }
     
-    public void addDocenteEfetivo(String codigo, String nome, double salario, String nivel, String titulacao, String area, int indice){
-        universidade.addDocenteEfetivo(codigo, nome, salario, nivel, titulacao, area, indice);
+    public void addDocenteEfetivo(String codigo, String nome, double salario, String nivel, String titulacao, String area, int indices[]){
+        universidade.addDocenteEfetivo(codigo, nome, salario, nivel, titulacao, area, indices);
     }
     
-    public void addDocenteSubstituto(String codigo, String nome, double salario, String nivel, String titulacao, int cargaHoraria, int indice){
-        universidade.addDocenteSubstituto(codigo, nome, salario, nivel, titulacao, cargaHoraria, indice);
+    public void addDocenteSubstituto(String codigo, String nome, double salario, String nivel, String titulacao, int cargaHoraria, int indices[]){
+        universidade.addDocenteSubstituto(codigo, nome, salario, nivel, titulacao, cargaHoraria, indices);
     }
     
     public ArrayList<Departamento> getDeptos(){
@@ -52,19 +56,19 @@ public class Controlador {
         return universidade.getTodosFuncionarios();
     }
     
-    public ArrayList<Funcionario> getTodosTecnicos(){
+    public ArrayList<Tecnico> getTodosTecnicos(){
         return universidade.getTodosTecnicos();
     }
     
-    public ArrayList<Funcionario> getTodosDocentes(){
+    public ArrayList<Docente> getTodosDocentes(){
         return universidade.getTodosDocentes();
     }
     
-    public ArrayList<Funcionario> getTodosDocentesEfetivos(){
+    public ArrayList<Efetivo> getTodosDocentesEfetivos(){
         return universidade.getTodosDocentesEfetivos();
     }
     
-    public ArrayList<Funcionario> getTodosDocentesSubstitutos(){
+    public ArrayList<Substituto> getTodosDocentesSubstitutos(){
         return universidade.getTodosDocentesSubstitutos();
     }
     
