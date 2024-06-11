@@ -22,11 +22,19 @@ public class DataBase {
     private Departamento departamentos[];
     private static final int MAX = 50;
     private int cont;
+    public static DataBase instance = null;
     
     public DataBase(){
         cont = 0;
         departamentos = new Departamento[MAX];
         funcionarios = new ArrayList<>();
+    }
+    
+    public static DataBase getInstance(){
+        if(instance == null){
+            instance = new DataBase();
+        }
+        return instance;
     }
     
     public void addDepto(Departamento d){
