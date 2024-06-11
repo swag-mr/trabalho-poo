@@ -26,41 +26,110 @@ public class IUPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        MenuBar = new javax.swing.JMenuBar();
+        Cadastros = new javax.swing.JMenu();
+        Departamento = new javax.swing.JMenuItem();
+        Tecnico = new javax.swing.JMenuItem();
+        Docente_Subs = new javax.swing.JMenuItem();
+        Docente_Efet = new javax.swing.JMenuItem();
+        Relatorios = new javax.swing.JMenu();
+        Geral = new javax.swing.JMenuItem();
+        ResumoDeptos = new javax.swing.JMenuItem();
+        DeptosFaixa = new javax.swing.JMenuItem();
+        FuncsFaixa = new javax.swing.JMenuItem();
+        TodosFuncs = new javax.swing.JMenuItem();
+        TodosTecs = new javax.swing.JMenuItem();
+        TodosDocs = new javax.swing.JMenuItem();
+        TodosDocsSubs = new javax.swing.JMenuItem();
+        TodosDocsEfet = new javax.swing.JMenuItem();
+        BuscarDepto = new javax.swing.JMenuItem();
+        BuscarFuncNome = new javax.swing.JMenuItem();
+        BuscarFuncCode = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jMenu1.setText("Cadastros");
+        Cadastros.setText("Cadastros");
 
-        jMenuItem1.setText("Departamento");
-        jMenu1.add(jMenuItem1);
+        Departamento.setText("Departamento");
+        Departamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DepartamentoActionPerformed(evt);
+            }
+        });
+        Cadastros.add(Departamento);
 
-        jMenuItem2.setText("Funcionário");
-        jMenu1.add(jMenuItem2);
+        Tecnico.setText("Técnico");
+        Tecnico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TecnicoActionPerformed(evt);
+            }
+        });
+        Cadastros.add(Tecnico);
 
-        jMenuBar1.add(jMenu1);
+        Docente_Subs.setText("Docente Substituto");
+        Cadastros.add(Docente_Subs);
 
-        jMenu2.setText("Relatórios");
+        Docente_Efet.setText("Docente Efetivo");
+        Cadastros.add(Docente_Efet);
 
-        jMenuItem3.setText("Departamentos");
-        jMenu2.add(jMenuItem3);
+        MenuBar.add(Cadastros);
 
-        jMenuItem4.setText("Funcionarios");
-        jMenu2.add(jMenuItem4);
+        Relatorios.setText("Relatórios");
 
-        jMenuItem5.setText("Docentes");
-        jMenu2.add(jMenuItem5);
+        Geral.setText("Geral");
+        Geral.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GeralActionPerformed(evt);
+            }
+        });
+        Relatorios.add(Geral);
 
-        jMenuBar1.add(jMenu2);
+        ResumoDeptos.setText("Resumo Deptos");
+        ResumoDeptos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ResumoDeptosActionPerformed(evt);
+            }
+        });
+        Relatorios.add(ResumoDeptos);
 
-        setJMenuBar(jMenuBar1);
+        DeptosFaixa.setText("Resumo Deptos Faixa Específica");
+        Relatorios.add(DeptosFaixa);
+
+        FuncsFaixa.setText("Funcionários Faixa Específica");
+        Relatorios.add(FuncsFaixa);
+
+        TodosFuncs.setText("Todos Funcionários");
+        Relatorios.add(TodosFuncs);
+
+        TodosTecs.setText("Todos Técnicos");
+        Relatorios.add(TodosTecs);
+
+        TodosDocs.setText("Todos Docentes");
+        TodosDocs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TodosDocsActionPerformed(evt);
+            }
+        });
+        Relatorios.add(TodosDocs);
+
+        TodosDocsSubs.setText("Todos Docentes Substitutos");
+        Relatorios.add(TodosDocsSubs);
+
+        TodosDocsEfet.setText("Todos Docentes Efetivos");
+        Relatorios.add(TodosDocsEfet);
+
+        BuscarDepto.setText("Buscar Departamento");
+        Relatorios.add(BuscarDepto);
+
+        BuscarFuncNome.setText("Buscar Funcionário Nome");
+        Relatorios.add(BuscarFuncNome);
+
+        BuscarFuncCode.setText("Buscar Funcionário Código");
+        Relatorios.add(BuscarFuncCode);
+
+        MenuBar.add(Relatorios);
+
+        setJMenuBar(MenuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -75,6 +144,43 @@ public class IUPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void DepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DepartamentoActionPerformed
+        // TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                IUCadastroDepartamento dialog = new IUCadastroDepartamento(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        dialog.dispose();
+                    }
+                });
+                dialog.setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_DepartamentoActionPerformed
+
+    private void GeralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GeralActionPerformed
+        // TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new IURelatorioGeral().setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_GeralActionPerformed
+
+    private void TecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TecnicoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TecnicoActionPerformed
+
+    private void ResumoDeptosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResumoDeptosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ResumoDeptosActionPerformed
+
+    private void TodosDocsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TodosDocsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TodosDocsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -112,13 +218,24 @@ public class IUPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem BuscarDepto;
+    private javax.swing.JMenuItem BuscarFuncCode;
+    private javax.swing.JMenuItem BuscarFuncNome;
+    private javax.swing.JMenu Cadastros;
+    private javax.swing.JMenuItem Departamento;
+    private javax.swing.JMenuItem DeptosFaixa;
+    private javax.swing.JMenuItem Docente_Efet;
+    private javax.swing.JMenuItem Docente_Subs;
+    private javax.swing.JMenuItem FuncsFaixa;
+    private javax.swing.JMenuItem Geral;
+    private javax.swing.JMenuBar MenuBar;
+    private javax.swing.JMenu Relatorios;
+    private javax.swing.JMenuItem ResumoDeptos;
+    private javax.swing.JMenuItem Tecnico;
+    private javax.swing.JMenuItem TodosDocs;
+    private javax.swing.JMenuItem TodosDocsEfet;
+    private javax.swing.JMenuItem TodosDocsSubs;
+    private javax.swing.JMenuItem TodosFuncs;
+    private javax.swing.JMenuItem TodosTecs;
     // End of variables declaration//GEN-END:variables
 }

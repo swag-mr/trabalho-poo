@@ -10,9 +10,12 @@ package trabalho.IU;
  */
 public class Principal {
     public static void main(String[] args){
-        IUPrincipal principal = new IUPrincipal();
-        principal.setVisible(true);
-        principal.setTitle("Sistema de Cadastro de Produtos");
-        principal.toFront();
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {IUPrincipal principal = new IUPrincipal();
+                principal.setVisible(true);
+                principal.setTitle("Sistema de Cadastro de Produtos");
+                principal.toFront();
+            }
+        });
     }
 }

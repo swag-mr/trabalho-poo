@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package trabalho.IU;
+import trabalho.controlador.Controlador;
+import trabalho.modelo.Departamento;
 
 /**
  *
@@ -16,6 +18,7 @@ public class IUCadastroDepartamento extends javax.swing.JDialog {
     public IUCadastroDepartamento(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        labelMensagem.setVisible(false);
     }
 
     /**
@@ -27,21 +30,111 @@ public class IUCadastroDepartamento extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        NomeDeptoLabel = new javax.swing.JLabel();
+        NomeDeptoField = new javax.swing.JTextField();
+        CodigoDeptoLabel = new javax.swing.JLabel();
+        CodigoDeptoField = new javax.swing.JTextField();
+        Adicionar = new javax.swing.JButton();
+        labelMensagem = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastro Departamento");
+
+        NomeDeptoLabel.setText("Nome Departamento");
+
+        CodigoDeptoLabel.setText("Código Departamento");
+
+        CodigoDeptoField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                CodigoDeptoFieldFocusLost(evt);
+            }
+        });
+        CodigoDeptoField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CodigoDeptoFieldActionPerformed(evt);
+            }
+        });
+
+        Adicionar.setText("Adicionar");
+        Adicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdicionarActionPerformed(evt);
+            }
+        });
+
+        labelMensagem.setFont(new java.awt.Font("Cantarell", 0, 16)); // NOI18N
+        labelMensagem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelMensagem.setText("MENSAGEM");
+        labelMensagem.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(labelMensagem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(CodigoDeptoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+                    .addComponent(NomeDeptoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NomeDeptoField)
+                    .addComponent(CodigoDeptoField))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                .addComponent(Adicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(CodigoDeptoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(CodigoDeptoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(NomeDeptoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16)
+                .addComponent(NomeDeptoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Adicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelMensagem, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void CodigoDeptoFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CodigoDeptoFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CodigoDeptoFieldActionPerformed
+
+    private void AdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdicionarActionPerformed
+        // TODO add your handling code here:
+        String nomeDepto = NomeDeptoField.getText();
+        String codigoDepto = CodigoDeptoField.getText();
+        Controlador control = new Controlador();
+        control.addDepto(codigoDepto, nomeDepto);
+        labelMensagem.setText("CONTA CADASTRADA COM SUCESSO!");
+        labelMensagem.setVisible(true);
+    }//GEN-LAST:event_AdicionarActionPerformed
+
+    private void CodigoDeptoFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CodigoDeptoFieldFocusLost
+        // TODO add your handling code here:
+        String codigoDepto = CodigoDeptoField.getText();
+        Controlador control = new Controlador();
+        Departamento d = control.getDeptoCodigo(codigoDepto);
+        if(d != null){
+            NomeDeptoField.setText(d.getNome());
+            Adicionar.setEnabled(false);
+            CodigoDeptoField.requestFocus();
+            labelMensagem.setText("CONTA JÁ CADASTRADA!");
+            labelMensagem.setVisible(true);
+        }else{
+            NomeDeptoField.setText("");
+            Adicionar.setEnabled(true);
+            labelMensagem.setVisible(false);
+        }
+    }//GEN-LAST:event_CodigoDeptoFieldFocusLost
 
     /**
      * @param args the command line arguments
@@ -77,7 +170,7 @@ public class IUCadastroDepartamento extends javax.swing.JDialog {
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
+                        dialog.dispose();
                     }
                 });
                 dialog.setVisible(true);
@@ -86,5 +179,11 @@ public class IUCadastroDepartamento extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Adicionar;
+    private javax.swing.JTextField CodigoDeptoField;
+    private javax.swing.JLabel CodigoDeptoLabel;
+    private javax.swing.JTextField NomeDeptoField;
+    private javax.swing.JLabel NomeDeptoLabel;
+    private javax.swing.JLabel labelMensagem;
     // End of variables declaration//GEN-END:variables
 }

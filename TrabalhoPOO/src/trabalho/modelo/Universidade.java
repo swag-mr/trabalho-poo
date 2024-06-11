@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class Universidade {
     private static String nome;
-    private DataBase db = new DataBase();
+    private DataBase db = DataBase.getInstance();
     
     public Universidade(){
         this.nome = "UNESP";
