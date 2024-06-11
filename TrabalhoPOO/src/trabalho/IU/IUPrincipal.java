@@ -26,6 +26,7 @@ public class IUPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         MenuBar = new javax.swing.JMenuBar();
         Cadastros = new javax.swing.JMenu();
         Departamento = new javax.swing.JMenuItem();
@@ -48,6 +49,10 @@ public class IUPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("<html><div style=\"text-align:center\"><p>Bem-vindo ao sistema de cadastro</p><p>e relatório da <strong>UniX</strong></p></div></html>");
+
         Cadastros.setText("Cadastros");
 
         Departamento.setText("Departamento");
@@ -67,9 +72,19 @@ public class IUPrincipal extends javax.swing.JFrame {
         Cadastros.add(Tecnico);
 
         Docente_Subs.setText("Docente Substituto");
+        Docente_Subs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Docente_SubsActionPerformed(evt);
+            }
+        });
         Cadastros.add(Docente_Subs);
 
         Docente_Efet.setText("Docente Efetivo");
+        Docente_Efet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Docente_EfetActionPerformed(evt);
+            }
+        });
         Cadastros.add(Docente_Efet);
 
         MenuBar.add(Cadastros);
@@ -135,11 +150,17 @@ public class IUPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(83, 83, 83)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(156, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         pack();
@@ -172,6 +193,18 @@ public class IUPrincipal extends javax.swing.JFrame {
 
     private void TecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TecnicoActionPerformed
         // TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                IUCadastroTecnico dialog = new IUCadastroTecnico(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        dialog.dispose();
+                    }
+                });
+                dialog.setVisible(true);
+            }
+        });
     }//GEN-LAST:event_TecnicoActionPerformed
 
     private void ResumoDeptosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResumoDeptosActionPerformed
@@ -181,6 +214,38 @@ public class IUPrincipal extends javax.swing.JFrame {
     private void TodosDocsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TodosDocsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TodosDocsActionPerformed
+
+    private void Docente_EfetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Docente_EfetActionPerformed
+        // TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                IUCadastroDocenteEfetivo dialog = new IUCadastroDocenteEfetivo(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        dialog.dispose();
+                    }
+                });
+                dialog.setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_Docente_EfetActionPerformed
+
+    private void Docente_SubsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Docente_SubsActionPerformed
+        // TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                IUCadastroDocenteSubstituto dialog = new IUCadastroDocenteSubstituto(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        dialog.dispose();
+                    }
+                });
+                dialog.setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_Docente_SubsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -237,5 +302,6 @@ public class IUPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem TodosDocsSubs;
     private javax.swing.JMenuItem TodosFuncs;
     private javax.swing.JMenuItem TodosTecs;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

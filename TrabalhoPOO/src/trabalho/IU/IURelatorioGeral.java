@@ -11,14 +11,13 @@ import trabalho.modelo.Departamento;
  *
  * @author vitor
  */
-public class IURelatorioGeral extends javax.swing.JDialog {
+public class IURelatorioGeral extends javax.swing.JFrame {
 
     /**
      * Creates new form IURelatorioGeral
      */
     public IURelatorioGeral() {
         initComponents();
-        this.setModal(true);
     }
 
     /**
