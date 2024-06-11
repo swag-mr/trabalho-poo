@@ -4,6 +4,11 @@
  */
 package trabalho.IU;
 
+import java.util.ArrayList;
+import trabalho.controlador.Controlador;
+import trabalho.modelo.Departamento;
+import trabalho.modelo.Funcionario;
+
 /**
  *
  * @author vitor
@@ -16,6 +21,14 @@ public class IUCadastroTecnico extends javax.swing.JDialog {
     public IUCadastroTecnico(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        Mensagem.setVisible(false);
+        
+        Controlador control = new Controlador();
+        ArrayList<Departamento> deptos = control.getDeptos();
+        
+        for(int i=0; i < deptos.size(); i++){
+            DeptosCombo.addItem(deptos.get(i).getNome());
+        }
     }
 
     /**
@@ -30,13 +43,68 @@ public class IUCadastroTecnico extends javax.swing.JDialog {
         Codigo = new javax.swing.JLabel();
         NomeField = new javax.swing.JTextField();
         Nome = new javax.swing.JLabel();
-        CodigoField1 = new javax.swing.JTextField();
+        CodigoField = new javax.swing.JTextField();
+        Salario = new javax.swing.JLabel();
+        SalarioField = new javax.swing.JTextField();
+        Funcao = new javax.swing.JLabel();
+        Nivel = new javax.swing.JLabel();
+        NivelCombo = new javax.swing.JComboBox<>();
+        Mensagem = new javax.swing.JLabel();
+        Adicionar = new javax.swing.JButton();
+        DeptosCombo = new javax.swing.JComboBox<>();
+        DeptosFunc = new javax.swing.JLabel();
+        FuncaoCombo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         Codigo.setText("Código do Funcionário");
 
         Nome.setText("Nome do Funcionário");
+
+        CodigoField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                CodigoFieldFocusLost(evt);
+            }
+        });
+        CodigoField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CodigoFieldActionPerformed(evt);
+            }
+        });
+
+        Salario.setText("Salário do Funcionário");
+
+        Funcao.setText("Função do Funcionário");
+
+        Nivel.setText("Nível do Funcionário");
+
+        NivelCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "T1", "T2" }));
+        NivelCombo.setSelectedItem(NivelCombo);
+        NivelCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NivelComboActionPerformed(evt);
+            }
+        });
+
+        Mensagem.setFont(new java.awt.Font("Cantarell", 0, 16)); // NOI18N
+        Mensagem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Mensagem.setText("MENSAGEM");
+
+        Adicionar.setText("Adicionar");
+        Adicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdicionarActionPerformed(evt);
+            }
+        });
+
+        DeptosFunc.setText("Departamentos do Funcionário");
+
+        FuncaoCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Assessor", "Laboratório", "Secretário" }));
+        FuncaoCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FuncaoComboActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -47,26 +115,120 @@ public class IUCadastroTecnico extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(NomeField)
                     .addComponent(Codigo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(CodigoField1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Nome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(483, Short.MAX_VALUE))
+                    .addComponent(CodigoField, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Nome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Salario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(SalarioField, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(49, 49, 49)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Funcao, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
+                            .addComponent(Nivel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(FuncaoCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Mensagem, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(DeptosFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NivelCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Adicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(DeptosCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CodigoField1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(NomeField, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(247, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Funcao, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(CodigoField, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(FuncaoCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Nivel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(45, 45, 45)
+                                .addComponent(Mensagem, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(17, 17, 17)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(NomeField, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NivelCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(DeptosFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Salario, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Adicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SalarioField, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DeptosCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void AdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdicionarActionPerformed
+        // TODO add your handling code here:
+        Controlador control = new Controlador();
+        String nome = NomeField.getText();
+        String codigo = CodigoField.getText();
+        double salario = Double.parseDouble(SalarioField.getText());
+        String funcao = (String) FuncaoCombo.getSelectedItem();
+        String nivel = (String) NivelCombo.getSelectedItem();
+        int indice = (int) DeptosCombo.getSelectedIndex();
+        control.addTecnico(codigo, nome, salario, nivel, funcao, indice);
+        Mensagem.setText("TÉCNICO CADASTRADO COM SUCESSO!");
+        Mensagem.setVisible(true);
+        Adicionar.setEnabled(false);
+    }//GEN-LAST:event_AdicionarActionPerformed
+
+    private void CodigoFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CodigoFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CodigoFieldActionPerformed
+
+    private void CodigoFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CodigoFieldFocusLost
+        // TODO add your handling code here:
+        String codigo = CodigoField.getText();
+        Controlador control = new Controlador();
+        Funcionario t = control.buscarFuncCodigo(codigo);
+        if(t != null){
+            CodigoField.setText(t.getCodigo());
+            NomeField.setText(t.getNome());
+            SalarioField.setText(String.valueOf(t.getSalario()));
+            Mensagem.setText("TÉCNICO JÁ CADASTRADO!");
+            Mensagem.setVisible(true);
+            Adicionar.setEnabled(false);
+        }else{
+            NomeField.setText("");
+            SalarioField.setText("");
+            Adicionar.setEnabled(true);
+            Mensagem.setVisible(false);
+        }
+    }//GEN-LAST:event_CodigoFieldFocusLost
+
+    private void NivelComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NivelComboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NivelComboActionPerformed
+
+    private void FuncaoComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FuncaoComboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FuncaoComboActionPerformed
 
     /**
      * @param args the command line arguments
@@ -102,7 +264,7 @@ public class IUCadastroTecnico extends javax.swing.JDialog {
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
+                        dialog.dispose();
                     }
                 });
                 dialog.setVisible(true);
@@ -111,9 +273,19 @@ public class IUCadastroTecnico extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Adicionar;
     private javax.swing.JLabel Codigo;
-    private javax.swing.JTextField CodigoField1;
+    private javax.swing.JTextField CodigoField;
+    private javax.swing.JComboBox<String> DeptosCombo;
+    private javax.swing.JLabel DeptosFunc;
+    private javax.swing.JLabel Funcao;
+    private javax.swing.JComboBox<String> FuncaoCombo;
+    private javax.swing.JLabel Mensagem;
+    private javax.swing.JLabel Nivel;
+    private javax.swing.JComboBox<String> NivelCombo;
     private javax.swing.JLabel Nome;
     private javax.swing.JTextField NomeField;
+    private javax.swing.JLabel Salario;
+    private javax.swing.JTextField SalarioField;
     // End of variables declaration//GEN-END:variables
 }

@@ -21,6 +21,10 @@ public class Tecnico extends Funcionario {
 	this.funcao = funcao;
     }
     
+    public String getFuncao(){
+        return funcao;
+    }
+    
     @Override
     public double calcularSalario(){
 	if(nivel.equals(Constantes.T1)){

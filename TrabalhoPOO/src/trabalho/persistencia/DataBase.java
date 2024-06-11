@@ -56,28 +56,22 @@ public class DataBase {
         return cont;
     }
     
-    public void addTecnico(String codigo, String nome, double salario, String nivel, String funcao, int indices[]){
+    public void addTecnico(String codigo, String nome, double salario, String nivel, String funcao, int indice){
         Tecnico t = new Tecnico(codigo, nome, salario, nivel, funcao);
         funcionarios.add(t);
-        for(int i=0; i < indices.length; i++){
-            departamentos[indices[i]].addTecnico(t);
-        }
+        departamentos[indice].addTecnico(t);
     }
     
-    public void addDocenteEfetivo(String codigo, String nome, double salario, String nivel, String titulacao, String area, int indices[]){
+    public void addDocenteEfetivo(String codigo, String nome, double salario, String nivel, String titulacao, String area, int indice){
         Efetivo de = new Efetivo(codigo, nome, salario, nivel, titulacao, area);
         funcionarios.add(de);
-        for(int i=0; i < indices.length; i++){
-            departamentos[indices[i]].addDocenteEfetivo(de);
-        }
+        departamentos[indice].addDocenteEfetivo(de);
     }
     
-    public void addDocenteSubstituto(String codigo, String nome, double salario, String nivel, String titulacao, int cargaHoraria, int indices[]){
+    public void addDocenteSubstituto(String codigo, String nome, double salario, String nivel, String titulacao, int cargaHoraria, int indice){
         Substituto ds = new Substituto(codigo, nome, salario, nivel, titulacao, cargaHoraria);
         funcionarios.add(ds);
-        for(int i=0; i < indices.length; i++){
-            departamentos[indices[i]].addDocenteSubstituto(ds);
-        }
+        departamentos[indice].addDocenteSubstituto(ds);
     }
     
     public ArrayList<Departamento> getDeptosFaixaEspecifica(int ini, int fim){

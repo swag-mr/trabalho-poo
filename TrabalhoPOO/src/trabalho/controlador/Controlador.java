@@ -32,16 +32,16 @@ public class Controlador {
         universidade.addDepto(codigo, nome);
     }
     
-    public void addTecnico(String codigo, String nome, double salario, String nivel, String funcao, int indices[]){ 
-        universidade.addTecnico(codigo, nome, salario, nivel, funcao, indices);
+    public void addTecnico(String codigo, String nome, double salario, String nivel, String funcao, int indice){ 
+        universidade.addTecnico(codigo, nome, salario, nivel, funcao, indice);
     }
     
-    public void addDocenteEfetivo(String codigo, String nome, double salario, String nivel, String titulacao, String area, int indices[]){
-        universidade.addDocenteEfetivo(codigo, nome, salario, nivel, titulacao, area, indices);
+    public void addDocenteEfetivo(String codigo, String nome, double salario, String nivel, String titulacao, String area, int indice){
+        universidade.addDocenteEfetivo(codigo, nome, salario, nivel, titulacao, area, indice);
     }
     
-    public void addDocenteSubstituto(String codigo, String nome, double salario, String nivel, String titulacao, int cargaHoraria, int indices[]){
-        universidade.addDocenteSubstituto(codigo, nome, salario, nivel, titulacao, cargaHoraria, indices);
+    public void addDocenteSubstituto(String codigo, String nome, double salario, String nivel, String titulacao, int cargaHoraria, int indice){
+        universidade.addDocenteSubstituto(codigo, nome, salario, nivel, titulacao, cargaHoraria, indice);
     }
     
     public ArrayList<Departamento> getDeptos(){
