@@ -120,10 +120,21 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TodosDocsEfetActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="BuscarDepto">
+            <MenuItem class="javax.swing.JMenuItem" name="BuscarDeptoLista">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Buscar Departamento"/>
+                <Property name="text" type="java.lang.String" value="Buscar Departamento Lista"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BuscarDeptoListaActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="BuscarDeptoCodigo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Buscar Departamento C&#xf3;digo"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BuscarDeptoCodigoActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="BuscarFuncNome">
               <Properties>

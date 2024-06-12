@@ -76,6 +76,10 @@ public class Universidade {
         return db.buscarFuncNome(nome);
     }
     
+    public ArrayList<Funcionario> getFuncsDepto(int indice){
+        return db.getFuncsDepto(indice);
+    }
+    
     public ArrayList<Funcionario> getTodosFuncionariosGastoEspecifico(double ini, double fim){
         return db.getTodosFuncionariosGastoEspecifico(ini, fim);
     }

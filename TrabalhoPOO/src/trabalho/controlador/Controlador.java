@@ -52,6 +52,10 @@ public class Controlador {
         return universidade.getDeptosFaixaEspecifica(ini, fim);
     }
     
+    public ArrayList<Funcionario> getFuncsDepto(int indice){
+        return universidade.getFuncsDepto(indice);
+    }
+    
     public ArrayList<Funcionario> getTodosFuncionarios(){
         return universidade.getTodosFuncionarios();
     }

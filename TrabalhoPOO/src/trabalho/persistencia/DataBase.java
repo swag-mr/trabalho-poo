@@ -84,6 +84,10 @@ public class DataBase {
         return departamentosFaixaEspecifica;
     }
     
+    public ArrayList<Funcionario> getFuncsDepto(int indice){
+        return (ArrayList<Funcionario>) departamentos[indice].getFuncionarios();
+    }
+    
     public ArrayList<Funcionario> getTodosFuncionarios(){
         return (ArrayList<Funcionario>) funcionarios.clone();
     }
