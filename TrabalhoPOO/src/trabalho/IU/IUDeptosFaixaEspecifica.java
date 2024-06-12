@@ -45,6 +45,7 @@ public class IUDeptosFaixaEspecifica extends javax.swing.JDialog {
         FimField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Resumo Departamentos Gasto Específico");
 
         Inicio.setText("Início da Faixa Salarial");
 

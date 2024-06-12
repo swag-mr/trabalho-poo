@@ -58,6 +58,7 @@ public class IUCadastroDocenteEfetivo extends javax.swing.JDialog {
         AreaCombo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastro Docente Efetivo");
 
         Codigo.setText("Código do Funcionário");
 

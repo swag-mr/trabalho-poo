@@ -41,6 +41,7 @@ public class IURelatórioDocentes extends javax.swing.JDialog {
         Exibir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Relatório de Todos Docentes");
 
         Tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

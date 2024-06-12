@@ -58,6 +58,7 @@ public class IUCadastroDocenteSubstituto extends javax.swing.JDialog {
         CargaCombo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastro Docente Substituto");
 
         Codigo.setText("Código do Funcionário");
 

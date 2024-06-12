@@ -43,6 +43,7 @@ public class IUBuscarFuncionarioNome extends javax.swing.JDialog {
         Buscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Buscar Funcionário por Nome");
 
         Nome.setText("Nome do Funcionário");
 

@@ -42,6 +42,7 @@ public class IUBuscarFuncionarioCodigo extends javax.swing.JDialog {
         Buscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Buscar Funcionário por Código");
 
         Codigo.setText("Código do Funcionário");
 
