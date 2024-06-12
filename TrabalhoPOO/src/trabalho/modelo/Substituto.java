@@ -21,6 +21,10 @@ public class Substituto extends Docente {
 	this.cargaHoraria = cargaHoraria;
     }
     
+    public int getCargaHoraria(){
+        return cargaHoraria;
+    }
+    
     @Override
     public double calcularSalario(){
 	if(nivel.equals(Constantes.S1)){

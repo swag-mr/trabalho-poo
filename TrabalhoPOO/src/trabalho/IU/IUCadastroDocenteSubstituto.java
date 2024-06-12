@@ -207,7 +207,7 @@ public class IUCadastroDocenteSubstituto extends javax.swing.JDialog {
         String titulacao = (String) TitulacaoCombo.getSelectedItem();
         String nivel = (String) NivelCombo.getSelectedItem();
         int indice = (int) DeptosCombo.getSelectedIndex();
-        int cargaHoraria = (int) CargaCombo.getSelectedItem();
+        int cargaHoraria = Integer.parseInt((String) CargaCombo.getSelectedItem());
         control.addDocenteSubstituto(codigo, nome, salario, nivel, titulacao, cargaHoraria, indice);
         Mensagem.setText("DOCENTE CADASTRADO COM SUCESSO!");
         Mensagem.setVisible(true);
