@@ -68,11 +68,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Resumo Deptos Faixa Espec&#xed;fica"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DeptosFaixaActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="FuncsFaixa">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Funcion&#xe1;rios Faixa Espec&#xed;fica"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FuncsFaixaActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="TodosFuncs">
               <Properties>
@@ -123,11 +129,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Buscar Funcion&#xe1;rio Nome"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BuscarFuncNomeActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="BuscarFuncCode">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Buscar Funcion&#xe1;rio C&#xf3;digo"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BuscarFuncCodeActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

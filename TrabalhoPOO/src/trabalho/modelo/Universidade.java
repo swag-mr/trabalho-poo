@@ -72,15 +72,15 @@ public class Universidade {
         return db.buscarFuncCodigo(codigo);
     }
     
-    public Funcionario buscarFuncNome(String nome){
+    public ArrayList<Funcionario> buscarFuncNome(String nome){
         return db.buscarFuncNome(nome);
     }
     
-    public ArrayList<Funcionario> getTodosFuncionariosGastoEspecifico(int ini, int fim){
+    public ArrayList<Funcionario> getTodosFuncionariosGastoEspecifico(double ini, double fim){
         return db.getTodosFuncionariosGastoEspecifico(ini, fim);
     }
     
-    public ArrayList<Departamento> getDeptosFaixaEspecifica(int ini, int fim){
+    public ArrayList<Departamento> getDeptosFaixaEspecifica(double ini, double fim){
         return db.getDeptosFaixaEspecifica(ini, fim);
     }
     

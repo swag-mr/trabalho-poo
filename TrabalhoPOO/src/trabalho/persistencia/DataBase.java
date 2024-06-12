@@ -74,7 +74,7 @@ public class DataBase {
         departamentos[indice].addDocenteSubstituto(ds);
     }
     
-    public ArrayList<Departamento> getDeptosFaixaEspecifica(int ini, int fim){
+    public ArrayList<Departamento> getDeptosFaixaEspecifica(double ini, double fim){
         ArrayList<Departamento> departamentosFaixaEspecifica = new ArrayList<>();
         for(int i=0; i < cont; i++){
             if(ini <= departamentos[i].getGastosTotais() && departamentos[i].getGastosTotais() <= fim){
@@ -150,16 +150,17 @@ public class DataBase {
         return null;
     }
     
-    public Funcionario buscarFuncNome(String nome){
+    public ArrayList<Funcionario> buscarFuncNome(String nome){
+        ArrayList<Funcionario> funcsNome = new ArrayList<>();
         for(int i=0; i < funcionarios.size(); i++){
-            if(funcionarios.get(i).getNome().equals(nome)){
-                return (Funcionario) funcionarios.get(i).clone();
+            if(funcionarios.get(i).getNome().equals(nome.toLowerCase())){
+                funcsNome.add((Funcionario) funcionarios.get(i).clone());
             }
         }
-        return null;
+        return funcsNome;
     }
     
-    public ArrayList<Funcionario> getTodosFuncionariosGastoEspecifico(int ini, int fim){
+    public ArrayList<Funcionario> getTodosFuncionariosGastoEspecifico(double ini, double fim){
         ArrayList<Funcionario> allFuncsGastoEspecifico = new ArrayList<>();
         for(int i=0; i < funcionarios.size(); i++){
             if(ini <= funcionarios.get(i).calcularSalario() && funcionarios.get(i).calcularSalario() <= fim){
