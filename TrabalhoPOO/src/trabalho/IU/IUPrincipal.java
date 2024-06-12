@@ -99,7 +99,7 @@ public class IUPrincipal extends javax.swing.JFrame {
         });
         Relatorios.add(Geral);
 
-        ResumoDeptos.setText("Resumo Deptos");
+        ResumoDeptos.setText("Resumo Departamentos");
         ResumoDeptos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ResumoDeptosActionPerformed(evt);
@@ -114,9 +114,19 @@ public class IUPrincipal extends javax.swing.JFrame {
         Relatorios.add(FuncsFaixa);
 
         TodosFuncs.setText("Todos Funcionários");
+        TodosFuncs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TodosFuncsActionPerformed(evt);
+            }
+        });
         Relatorios.add(TodosFuncs);
 
         TodosTecs.setText("Todos Técnicos");
+        TodosTecs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TodosTecsActionPerformed(evt);
+            }
+        });
         Relatorios.add(TodosTecs);
 
         TodosDocs.setText("Todos Docentes");
@@ -128,9 +138,19 @@ public class IUPrincipal extends javax.swing.JFrame {
         Relatorios.add(TodosDocs);
 
         TodosDocsSubs.setText("Todos Docentes Substitutos");
+        TodosDocsSubs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TodosDocsSubsActionPerformed(evt);
+            }
+        });
         Relatorios.add(TodosDocsSubs);
 
         TodosDocsEfet.setText("Todos Docentes Efetivos");
+        TodosDocsEfet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TodosDocsEfetActionPerformed(evt);
+            }
+        });
         Relatorios.add(TodosDocsEfet);
 
         BuscarDepto.setText("Buscar Departamento");
@@ -213,6 +233,18 @@ public class IUPrincipal extends javax.swing.JFrame {
 
     private void TodosDocsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TodosDocsActionPerformed
         // TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                IURelatórioDocentes dialog = new IURelatórioDocentes(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        dialog.dispose();
+                    }
+                });
+                dialog.setVisible(true);
+            }
+        });
     }//GEN-LAST:event_TodosDocsActionPerformed
 
     private void Docente_EfetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Docente_EfetActionPerformed
@@ -246,6 +278,70 @@ public class IUPrincipal extends javax.swing.JFrame {
             }
         });
     }//GEN-LAST:event_Docente_SubsActionPerformed
+
+    private void TodosTecsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TodosTecsActionPerformed
+        // TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                IURelatórioTecnicos dialog = new IURelatórioTecnicos(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        dialog.dispose();
+                    }
+                });
+                dialog.setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_TodosTecsActionPerformed
+
+    private void TodosDocsEfetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TodosDocsEfetActionPerformed
+        // TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                IURelatórioDocentesEfetivos dialog = new IURelatórioDocentesEfetivos(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        dialog.dispose();
+                    }
+                });
+                dialog.setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_TodosDocsEfetActionPerformed
+
+    private void TodosDocsSubsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TodosDocsSubsActionPerformed
+        // TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                IURelatórioDocentesSubstitutos dialog = new IURelatórioDocentesSubstitutos(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        dialog.dispose();
+                    }
+                });
+                dialog.setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_TodosDocsSubsActionPerformed
+
+    private void TodosFuncsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TodosFuncsActionPerformed
+        // TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                IURelatórioFuncionários dialog = new IURelatórioFuncionários(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        dialog.dispose();
+                    }
+                });
+                dialog.setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_TodosFuncsActionPerformed
 
     /**
      * @param args the command line arguments

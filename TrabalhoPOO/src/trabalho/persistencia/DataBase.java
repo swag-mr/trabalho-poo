@@ -90,7 +90,7 @@ public class DataBase {
     
     public ArrayList<Tecnico> getTodosTecnicos(){
         ArrayList<Tecnico> allTecnicos = new ArrayList<>();
-        for(int i=0; i < cont; i++){
+        for(int i=0; i < funcionarios.size(); i++){
             if(funcionarios.get(i).getTipo().equals(Constantes.TECNICO)){
                 allTecnicos.add((Tecnico) funcionarios.get(i).clone());
             }
@@ -100,7 +100,7 @@ public class DataBase {
     
     public ArrayList<Docente> getTodosDocentes(){
         ArrayList<Docente> allDocentes = new ArrayList<>();
-        for(int i=0; i < cont; i++){
+        for(int i=0; i < funcionarios.size(); i++){
             if(funcionarios.get(i).getTipo().equals(Constantes.DOCENTE_EFETIVO) || funcionarios.get(i).getTipo().equals(Constantes.DOCENTE_SUBSTITUTO)){
                 allDocentes.add((Docente) funcionarios.get(i).clone());
             }
@@ -110,7 +110,7 @@ public class DataBase {
     
     public ArrayList<Efetivo> getTodosDocentesEfetivos(){
         ArrayList<Efetivo> allDocentesEfetivos = new ArrayList<>();
-        for(int i=0; i < cont; i++){
+        for(int i=0; i < funcionarios.size(); i++){
             if(funcionarios.get(i).getTipo().equals(Constantes.DOCENTE_EFETIVO)){
                 allDocentesEfetivos.add((Efetivo) funcionarios.get(i).clone());
             }
@@ -120,7 +120,7 @@ public class DataBase {
     
     public ArrayList<Substituto> getTodosDocentesSubstitutos(){
         ArrayList<Substituto> allDocentesSubstitutos = new ArrayList<>();
-        for(int i=0; i < cont; i++){
+        for(int i=0; i < funcionarios.size(); i++){
             if(funcionarios.get(i).getTipo().equals(Constantes.DOCENTE_SUBSTITUTO)){
                 allDocentesSubstitutos.add((Substituto) funcionarios.get(i).clone());
             }

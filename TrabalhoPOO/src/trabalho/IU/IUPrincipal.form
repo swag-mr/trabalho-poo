@@ -58,7 +58,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="ResumoDeptos">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Resumo Deptos"/>
+                <Property name="text" type="java.lang.String" value="Resumo Departamentos"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ResumoDeptosActionPerformed"/>
@@ -78,11 +78,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Todos Funcion&#xe1;rios"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TodosFuncsActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="TodosTecs">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Todos T&#xe9;cnicos"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TodosTecsActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="TodosDocs">
               <Properties>
@@ -96,11 +102,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Todos Docentes Substitutos"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TodosDocsSubsActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="TodosDocsEfet">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Todos Docentes Efetivos"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TodosDocsEfetActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="BuscarDepto">
               <Properties>

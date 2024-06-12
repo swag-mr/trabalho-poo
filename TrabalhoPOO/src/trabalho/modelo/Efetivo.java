@@ -21,6 +21,10 @@ public class Efetivo extends Docente {
 	this.area = area;
     }
     
+    public String getArea(){
+        return area;
+    }
+    
     @Override
     public double calcularSalario(){
 	if(nivel.equals(Constantes.D1)){
