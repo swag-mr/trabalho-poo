@@ -43,7 +43,8 @@ public class IUPrincipal extends javax.swing.JFrame {
         TodosDocs = new javax.swing.JMenuItem();
         TodosDocsSubs = new javax.swing.JMenuItem();
         TodosDocsEfet = new javax.swing.JMenuItem();
-        BuscarDepto = new javax.swing.JMenuItem();
+        BuscarDeptoLista = new javax.swing.JMenuItem();
+        BuscarDeptoCodigo = new javax.swing.JMenuItem();
         BuscarFuncNome = new javax.swing.JMenuItem();
         BuscarFuncCode = new javax.swing.JMenuItem();
 
@@ -163,8 +164,21 @@ public class IUPrincipal extends javax.swing.JFrame {
         });
         Relatorios.add(TodosDocsEfet);
 
-        BuscarDepto.setText("Buscar Departamento");
-        Relatorios.add(BuscarDepto);
+        BuscarDeptoLista.setText("Buscar Departamento Lista");
+        BuscarDeptoLista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarDeptoListaActionPerformed(evt);
+            }
+        });
+        Relatorios.add(BuscarDeptoLista);
+
+        BuscarDeptoCodigo.setText("Buscar Departamento Código");
+        BuscarDeptoCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarDeptoCodigoActionPerformed(evt);
+            }
+        });
+        Relatorios.add(BuscarDeptoCodigo);
 
         BuscarFuncNome.setText("Buscar Funcionário Nome");
         BuscarFuncNome.addActionListener(new java.awt.event.ActionListener() {
@@ -224,11 +238,6 @@ public class IUPrincipal extends javax.swing.JFrame {
 
     private void GeralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GeralActionPerformed
         // TODO add your handling code here:
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new IURelatorioGeral().setVisible(true);
-            }
-        });
     }//GEN-LAST:event_GeralActionPerformed
 
     private void TecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TecnicoActionPerformed
@@ -439,6 +448,38 @@ public class IUPrincipal extends javax.swing.JFrame {
         });
     }//GEN-LAST:event_DeptosFaixaActionPerformed
 
+    private void BuscarDeptoListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarDeptoListaActionPerformed
+        // TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                IUBuscarDepartamentoLista dialog = new IUBuscarDepartamentoLista(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        dialog.dispose();
+                    }
+                });
+                dialog.setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_BuscarDeptoListaActionPerformed
+
+    private void BuscarDeptoCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarDeptoCodigoActionPerformed
+        // TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                IUBuscarDepartamentoCódigo dialog = new IUBuscarDepartamentoCódigo(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        dialog.dispose();
+                    }
+                });
+                dialog.setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_BuscarDeptoCodigoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -475,7 +516,8 @@ public class IUPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem BuscarDepto;
+    private javax.swing.JMenuItem BuscarDeptoCodigo;
+    private javax.swing.JMenuItem BuscarDeptoLista;
     private javax.swing.JMenuItem BuscarFuncCode;
     private javax.swing.JMenuItem BuscarFuncNome;
     private javax.swing.JMenu Cadastros;
