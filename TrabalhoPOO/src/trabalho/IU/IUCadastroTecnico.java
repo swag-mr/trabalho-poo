@@ -56,6 +56,7 @@ public class IUCadastroTecnico extends javax.swing.JDialog {
         FuncaoCombo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastro Técnico");
 
         Codigo.setText("Código do Funcionário");
 

@@ -55,6 +55,7 @@ public class IUBuscarDepartamentoLista extends javax.swing.JDialog {
         Gasto = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Buscar Departamento por Lista");
 
         Tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

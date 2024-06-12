@@ -40,8 +40,11 @@ public class IURelatórioGeral extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabela = new javax.swing.JTable();
         Exibir = new javax.swing.JButton();
+        GastoUni = new javax.swing.JLabel();
+        GastoUniLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Relatório Geral");
 
         Tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -63,18 +66,28 @@ public class IURelatórioGeral extends javax.swing.JDialog {
             }
         });
 
+        GastoUni.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
+
+        GastoUniLabel.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
+        GastoUniLabel.setText("Gasto Total da Universidade");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(87, 87, 87)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 623, Short.MAX_VALUE)
-                .addGap(93, 93, 93))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(358, 358, 358)
                 .addComponent(Exibir, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(87, 87, 87)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(GastoUniLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(GastoUni, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 623, Short.MAX_VALUE))
+                .addGap(93, 93, 93))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -82,8 +95,12 @@ public class IURelatórioGeral extends javax.swing.JDialog {
                 .addGap(39, 39, 39)
                 .addComponent(Exibir, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(GastoUni, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(GastoUniLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28))
         );
 
         pack();
@@ -105,6 +122,12 @@ public class IURelatórioGeral extends javax.swing.JDialog {
                 model.addRow(linha);
             }
         }
+        double gastosTotais = 0;
+        for(int i=0; i < control.getNumDeptos(); i++){
+            Departamento dp = control.getDeptoIndice(i);
+            gastosTotais += dp.getGastosTotais();
+        }
+        GastoUni.setText(Double.toString(gastosTotais));
         Exibir.setEnabled(false);
     }//GEN-LAST:event_ExibirActionPerformed
 
@@ -155,6 +178,8 @@ public class IURelatórioGeral extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Exibir;
+    private javax.swing.JLabel GastoUni;
+    private javax.swing.JLabel GastoUniLabel;
     private javax.swing.JTable Tabela;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
