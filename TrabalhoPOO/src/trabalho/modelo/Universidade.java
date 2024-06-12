@@ -31,6 +31,10 @@ public class Universidade {
         Universidade.nome = nome;
     }
     
+    public int getNumDeptos(){
+        return db.getNumDeptos();
+    }
+    
     public void addDepto(String codigo, String nome){
         Departamento d = new Departamento(codigo, nome);
         db.addDepto(d);

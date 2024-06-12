@@ -28,6 +28,10 @@ public class Controlador {
         return universidade.getNome();
     }
     
+    public int getNumDeptos(){
+        return universidade.getNumDeptos();
+    }
+    
     public void addDepto(String codigo, String nome){
         universidade.addDepto(codigo, nome);
     }

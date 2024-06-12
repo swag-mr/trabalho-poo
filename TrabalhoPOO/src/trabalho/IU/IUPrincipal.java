@@ -238,6 +238,18 @@ public class IUPrincipal extends javax.swing.JFrame {
 
     private void GeralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GeralActionPerformed
         // TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                IURelatórioGeral dialog = new IURelatórioGeral(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        dialog.dispose();
+                    }
+                });
+                dialog.setVisible(true);
+            }
+        });
     }//GEN-LAST:event_GeralActionPerformed
 
     private void TecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TecnicoActionPerformed
