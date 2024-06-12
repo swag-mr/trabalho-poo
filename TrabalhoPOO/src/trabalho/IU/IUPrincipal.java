@@ -108,9 +108,19 @@ public class IUPrincipal extends javax.swing.JFrame {
         Relatorios.add(ResumoDeptos);
 
         DeptosFaixa.setText("Resumo Deptos Faixa Específica");
+        DeptosFaixa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeptosFaixaActionPerformed(evt);
+            }
+        });
         Relatorios.add(DeptosFaixa);
 
         FuncsFaixa.setText("Funcionários Faixa Específica");
+        FuncsFaixa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FuncsFaixaActionPerformed(evt);
+            }
+        });
         Relatorios.add(FuncsFaixa);
 
         TodosFuncs.setText("Todos Funcionários");
@@ -157,9 +167,19 @@ public class IUPrincipal extends javax.swing.JFrame {
         Relatorios.add(BuscarDepto);
 
         BuscarFuncNome.setText("Buscar Funcionário Nome");
+        BuscarFuncNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarFuncNomeActionPerformed(evt);
+            }
+        });
         Relatorios.add(BuscarFuncNome);
 
         BuscarFuncCode.setText("Buscar Funcionário Código");
+        BuscarFuncCode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarFuncCodeActionPerformed(evt);
+            }
+        });
         Relatorios.add(BuscarFuncCode);
 
         MenuBar.add(Relatorios);
@@ -229,6 +249,18 @@ public class IUPrincipal extends javax.swing.JFrame {
 
     private void ResumoDeptosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResumoDeptosActionPerformed
         // TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                IUResumoDeptos dialog = new IUResumoDeptos(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        dialog.dispose();
+                    }
+                });
+                dialog.setVisible(true);
+            }
+        });
     }//GEN-LAST:event_ResumoDeptosActionPerformed
 
     private void TodosDocsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TodosDocsActionPerformed
@@ -342,6 +374,70 @@ public class IUPrincipal extends javax.swing.JFrame {
             }
         });
     }//GEN-LAST:event_TodosFuncsActionPerformed
+
+    private void BuscarFuncNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarFuncNomeActionPerformed
+        // TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                IUBuscarFuncionarioNome dialog = new IUBuscarFuncionarioNome(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        dialog.dispose();
+                    }
+                });
+                dialog.setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_BuscarFuncNomeActionPerformed
+
+    private void BuscarFuncCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarFuncCodeActionPerformed
+        // TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                IUBuscarFuncionarioCodigo dialog = new IUBuscarFuncionarioCodigo(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        dialog.dispose();
+                    }
+                });
+                dialog.setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_BuscarFuncCodeActionPerformed
+
+    private void FuncsFaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FuncsFaixaActionPerformed
+        // TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                IUFuncsFaixaEspecifica dialog = new IUFuncsFaixaEspecifica(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        dialog.dispose();
+                    }
+                });
+                dialog.setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_FuncsFaixaActionPerformed
+
+    private void DeptosFaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeptosFaixaActionPerformed
+        // TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                IUDeptosFaixaEspecifica dialog = new IUDeptosFaixaEspecifica(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        dialog.dispose();
+                    }
+                });
+                dialog.setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_DeptosFaixaActionPerformed
 
     /**
      * @param args the command line arguments

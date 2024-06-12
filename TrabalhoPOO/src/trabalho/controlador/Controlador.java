@@ -48,7 +48,7 @@ public class Controlador {
         return universidade.getDeptos();
     }
     
-    public ArrayList<Departamento> getDeptoGastoEspecifico(int ini, int fim){
+    public ArrayList<Departamento> getDeptoGastoEspecifico(double ini, double fim){
         return universidade.getDeptosFaixaEspecifica(ini, fim);
     }
     
@@ -84,11 +84,11 @@ public class Controlador {
         return universidade.buscarFuncCodigo(codigo);
     }
     
-    public Funcionario buscarFuncNome(String nome){
+    public ArrayList<Funcionario> buscarFuncNome(String nome){
         return universidade.buscarFuncNome(nome);
     }
     
-    public ArrayList<Funcionario> getTodosFuncionariosGastoEspecifico(int ini, int fim){
+    public ArrayList<Funcionario> getTodosFuncionariosGastoEspecifico(double ini, double fim){
         return universidade.getTodosFuncionariosGastoEspecifico(ini, fim);
     }
 }
