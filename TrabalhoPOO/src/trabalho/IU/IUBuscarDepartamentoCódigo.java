@@ -81,6 +81,8 @@ public class IUBuscarDepartamentoCódigo extends javax.swing.JDialog {
 
         CodigoDeptoLabel.setText("Código Departamento");
 
+        Nome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         GastoTotalField.setText("Gasto Total");
 
         CodigoField.addFocusListener(new java.awt.event.FocusAdapter() {

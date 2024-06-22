@@ -110,12 +110,14 @@ public class IUBuscarFuncionarioCodigo extends javax.swing.JDialog {
         Controlador control = new Controlador();
         String codigo = CodigoField.getText();
         Funcionario func = control.buscarFuncCodigo(codigo);
-        Object linha[] = new Object[4];
-        linha[0] = func.getCodigo();
-        linha[1] = func.getNome();
-        linha[2] = func.calcularSalario();
-        linha[3] = func.getNivel();
-        model.addRow(linha);
+	if(func != null){
+	    Object linha[] = new Object[4];
+	    linha[0] = func.getCodigo();
+	    linha[1] = func.getNome();
+	    linha[2] = func.calcularSalario();
+	    linha[3] = func.getNivel();
+	    model.addRow(linha);
+	}
         Buscar.setEnabled(false);
     }//GEN-LAST:event_BuscarActionPerformed
 

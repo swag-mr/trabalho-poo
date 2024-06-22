@@ -46,7 +46,7 @@ public class Departamento implements Cloneable {
     }
     
     public double getGastosTotais(){
-        int gastoTotal = 0;
+        double gastoTotal = 0;
         for(int i=0; i < funcionarios.size(); i++){
             gastoTotal += funcionarios.get(i).calcularSalario();
         }

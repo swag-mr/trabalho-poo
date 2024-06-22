@@ -137,6 +137,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="Nome">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="Codigo">
     </Component>
