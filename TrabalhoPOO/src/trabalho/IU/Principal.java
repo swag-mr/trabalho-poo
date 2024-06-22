@@ -13,7 +13,8 @@ public class Principal {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {IUPrincipal principal = new IUPrincipal();
                 principal.setVisible(true);
-                principal.setTitle("Sistema de Cadastro de Produtos");
+                principal.setResizable(false);
+                principal.setTitle("Sistema de Gerenciamento - Universidade X");
                 principal.toFront();
             }
         });

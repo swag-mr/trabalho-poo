@@ -4,11 +4,11 @@
  */
 package trabalho.IU;
 
-import java.util.ArrayList;
+import java.text.NumberFormat;
+import java.util.Locale;
 import javax.swing.table.DefaultTableModel;
 import trabalho.controlador.Controlador;
 import trabalho.modelo.Departamento;
-import trabalho.modelo.Funcionario;
 
 /**
  *
@@ -23,6 +23,7 @@ public class IURelatórioGeral extends javax.swing.JDialog {
     public IURelatórioGeral(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setResizable(false);
         String colunas[] = {"Código Depto", "Nome Depto", "Código Func", "Nome Func", "Salário", "Nível"};
         model = new DefaultTableModel(colunas, 0);
         Tabela.setModel(model);
@@ -69,7 +70,7 @@ public class IURelatórioGeral extends javax.swing.JDialog {
         GastoUni.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
 
         GastoUniLabel.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
-        GastoUniLabel.setText("Gasto Total da Universidade");
+        GastoUniLabel.setText("Gasto total da UniX:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -92,15 +93,18 @@ public class IURelatórioGeral extends javax.swing.JDialog {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addGap(19, 19, 19)
                 .addComponent(Exibir, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(GastoUni, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(GastoUniLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(GastoUniLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(GastoUni, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -127,7 +131,8 @@ public class IURelatórioGeral extends javax.swing.JDialog {
             Departamento dp = control.getDeptoIndice(i);
             gastosTotais += dp.getGastosTotais();
         }
-        GastoUni.setText(Double.toString(gastosTotais));
+        NumberFormat gastosTotaisFormatado = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
+        GastoUni.setText(gastosTotaisFormatado.format(gastosTotais));
         Exibir.setEnabled(false);
     }//GEN-LAST:event_ExibirActionPerformed
 

@@ -4,6 +4,13 @@
  */
 package trabalho.IU;
 
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+
 /**
  *
  * @author vitor
@@ -15,6 +22,15 @@ public class IUPrincipal extends javax.swing.JFrame {
      */
     public IUPrincipal() {
         initComponents();
+        this.setResizable(false);
+        Image imagem;
+        try {
+            imagem = ImageIO.read(new File ("src/assets/images/unix-logo.png"));
+            this.setIconImage(imagem);
+        } catch (IOException ex) {
+            System.out.println("dfasdasdacsds");
+            Logger.getLogger(IUPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -26,7 +42,9 @@ public class IUPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         MenuBar = new javax.swing.JMenuBar();
         Cadastros = new javax.swing.JMenu();
         Departamento = new javax.swing.JMenuItem();
@@ -50,9 +68,23 @@ public class IUPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 245, Short.MAX_VALUE)
+        );
+
         jLabel1.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("<html><div style=\"text-align:center\"><p>Bem-vindo ao sistema de cadastro</p><p>e relatório da <strong>UniX</strong></p></div></html>");
+        jLabel1.setText("<html><div style='display:flex; flex-direction:column; align-items:center; justify-content:center;'><div style='text-align:center'><p>Bem-vindo ao sistema de cadastro</p><p>e relatório da <strong>UniX</strong></p></div></div></html> ");
+        jLabel1.setMaximumSize(new java.awt.Dimension(2147483647, 2096));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/unix-logo.png"))); // NOI18N
 
         Cadastros.setText("Cadastros");
 
@@ -205,16 +237,27 @@ public class IUPrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(83, 83, 83)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(166, 166, 166)
+                        .addComponent(jLabel2)))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(110, 110, 110)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(73, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
         pack();
@@ -231,6 +274,14 @@ public class IUPrincipal extends javax.swing.JFrame {
                         dialog.dispose();
                     }
                 });
+                Image imagem;
+                try {
+                    imagem = ImageIO.read(new File ("src/assets/images/unix-logo.png"));
+                    dialog.setIconImage(imagem);
+                } catch (IOException ex) {
+                    System.out.println("dfasdasdacsds");
+                    Logger.getLogger(IUPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 dialog.setVisible(true);
             }
         });
@@ -247,6 +298,14 @@ public class IUPrincipal extends javax.swing.JFrame {
                         dialog.dispose();
                     }
                 });
+                Image imagem;
+                try {
+                    imagem = ImageIO.read(new File ("src/assets/images/unix-logo.png"));
+                    dialog.setIconImage(imagem);
+                } catch (IOException ex) {
+                    System.out.println("dfasdasdacsds");
+                    Logger.getLogger(IUPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 dialog.setVisible(true);
             }
         });
@@ -263,6 +322,14 @@ public class IUPrincipal extends javax.swing.JFrame {
                         dialog.dispose();
                     }
                 });
+                Image imagem;
+                try {
+                    imagem = ImageIO.read(new File ("src/assets/images/unix-logo.png"));
+                    dialog.setIconImage(imagem);
+                } catch (IOException ex) {
+                    System.out.println("dfasdasdacsds");
+                    Logger.getLogger(IUPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 dialog.setVisible(true);
             }
         });
@@ -279,6 +346,14 @@ public class IUPrincipal extends javax.swing.JFrame {
                         dialog.dispose();
                     }
                 });
+                Image imagem;
+                try {
+                    imagem = ImageIO.read(new File ("src/assets/images/unix-logo.png"));
+                    dialog.setIconImage(imagem);
+                } catch (IOException ex) {
+                    System.out.println("dfasdasdacsds");
+                    Logger.getLogger(IUPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 dialog.setVisible(true);
             }
         });
@@ -295,6 +370,14 @@ public class IUPrincipal extends javax.swing.JFrame {
                         dialog.dispose();
                     }
                 });
+                Image imagem;
+                try {
+                    imagem = ImageIO.read(new File ("src/assets/images/unix-logo.png"));
+                    dialog.setIconImage(imagem);
+                } catch (IOException ex) {
+                    System.out.println("dfasdasdacsds");
+                    Logger.getLogger(IUPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 dialog.setVisible(true);
             }
         });
@@ -311,6 +394,14 @@ public class IUPrincipal extends javax.swing.JFrame {
                         dialog.dispose();
                     }
                 });
+                Image imagem;
+                try {
+                    imagem = ImageIO.read(new File ("src/assets/images/unix-logo.png"));
+                    dialog.setIconImage(imagem);
+                } catch (IOException ex) {
+                    System.out.println("dfasdasdacsds");
+                    Logger.getLogger(IUPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 dialog.setVisible(true);
             }
         });
@@ -327,6 +418,14 @@ public class IUPrincipal extends javax.swing.JFrame {
                         dialog.dispose();
                     }
                 });
+                Image imagem;
+                try {
+                    imagem = ImageIO.read(new File ("src/assets/images/unix-logo.png"));
+                    dialog.setIconImage(imagem);
+                } catch (IOException ex) {
+                    System.out.println("dfasdasdacsds");
+                    Logger.getLogger(IUPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 dialog.setVisible(true);
             }
         });
@@ -343,6 +442,14 @@ public class IUPrincipal extends javax.swing.JFrame {
                         dialog.dispose();
                     }
                 });
+                Image imagem;
+                try {
+                    imagem = ImageIO.read(new File ("src/assets/images/unix-logo.png"));
+                    dialog.setIconImage(imagem);
+                } catch (IOException ex) {
+                    System.out.println("dfasdasdacsds");
+                    Logger.getLogger(IUPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 dialog.setVisible(true);
             }
         });
@@ -359,6 +466,14 @@ public class IUPrincipal extends javax.swing.JFrame {
                         dialog.dispose();
                     }
                 });
+                Image imagem;
+                try {
+                    imagem = ImageIO.read(new File ("src/assets/images/unix-logo.png"));
+                    dialog.setIconImage(imagem);
+                } catch (IOException ex) {
+                    System.out.println("dfasdasdacsds");
+                    Logger.getLogger(IUPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 dialog.setVisible(true);
             }
         });
@@ -375,6 +490,14 @@ public class IUPrincipal extends javax.swing.JFrame {
                         dialog.dispose();
                     }
                 });
+                Image imagem;
+                try {
+                    imagem = ImageIO.read(new File ("src/assets/images/unix-logo.png"));
+                    dialog.setIconImage(imagem);
+                } catch (IOException ex) {
+                    System.out.println("dfasdasdacsds");
+                    Logger.getLogger(IUPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 dialog.setVisible(true);
             }
         });
@@ -391,6 +514,14 @@ public class IUPrincipal extends javax.swing.JFrame {
                         dialog.dispose();
                     }
                 });
+                Image imagem;
+                try {
+                    imagem = ImageIO.read(new File ("src/assets/images/unix-logo.png"));
+                    dialog.setIconImage(imagem);
+                } catch (IOException ex) {
+                    System.out.println("dfasdasdacsds");
+                    Logger.getLogger(IUPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 dialog.setVisible(true);
             }
         });
@@ -407,6 +538,14 @@ public class IUPrincipal extends javax.swing.JFrame {
                         dialog.dispose();
                     }
                 });
+                Image imagem;
+                try {
+                    imagem = ImageIO.read(new File ("src/assets/images/unix-logo.png"));
+                    dialog.setIconImage(imagem);
+                } catch (IOException ex) {
+                    System.out.println("dfasdasdacsds");
+                    Logger.getLogger(IUPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 dialog.setVisible(true);
             }
         });
@@ -423,6 +562,14 @@ public class IUPrincipal extends javax.swing.JFrame {
                         dialog.dispose();
                     }
                 });
+                Image imagem;
+                try {
+                    imagem = ImageIO.read(new File ("src/assets/images/unix-logo.png"));
+                    dialog.setIconImage(imagem);
+                } catch (IOException ex) {
+                    System.out.println("dfasdasdacsds");
+                    Logger.getLogger(IUPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 dialog.setVisible(true);
             }
         });
@@ -439,6 +586,14 @@ public class IUPrincipal extends javax.swing.JFrame {
                         dialog.dispose();
                     }
                 });
+                Image imagem;
+                try {
+                    imagem = ImageIO.read(new File ("src/assets/images/unix-logo.png"));
+                    dialog.setIconImage(imagem);
+                } catch (IOException ex) {
+                    System.out.println("dfasdasdacsds");
+                    Logger.getLogger(IUPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 dialog.setVisible(true);
             }
         });
@@ -455,6 +610,14 @@ public class IUPrincipal extends javax.swing.JFrame {
                         dialog.dispose();
                     }
                 });
+                Image imagem;
+                try {
+                    imagem = ImageIO.read(new File ("src/assets/images/unix-logo.png"));
+                    dialog.setIconImage(imagem);
+                } catch (IOException ex) {
+                    System.out.println("dfasdasdacsds");
+                    Logger.getLogger(IUPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 dialog.setVisible(true);
             }
         });
@@ -471,6 +634,14 @@ public class IUPrincipal extends javax.swing.JFrame {
                         dialog.dispose();
                     }
                 });
+                Image imagem;
+                try {
+                    imagem = ImageIO.read(new File ("src/assets/images/unix-logo.png"));
+                    dialog.setIconImage(imagem);
+                } catch (IOException ex) {
+                    System.out.println("dfasdasdacsds");
+                    Logger.getLogger(IUPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 dialog.setVisible(true);
             }
         });
@@ -487,6 +658,14 @@ public class IUPrincipal extends javax.swing.JFrame {
                         dialog.dispose();
                     }
                 });
+                Image imagem;
+                try {
+                    imagem = ImageIO.read(new File ("src/assets/images/unix-logo.png"));
+                    dialog.setIconImage(imagem);
+                } catch (IOException ex) {
+                    System.out.println("dfasdasdacsds");
+                    Logger.getLogger(IUPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 dialog.setVisible(true);
             }
         });
@@ -549,5 +728,7 @@ public class IUPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem TodosFuncs;
     private javax.swing.JMenuItem TodosTecs;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
