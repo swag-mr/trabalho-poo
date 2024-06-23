@@ -157,7 +157,7 @@ public class DataBase {
     public ArrayList<Funcionario> buscarFuncNome(String nome){
         ArrayList<Funcionario> funcsNome = new ArrayList<>();
         for(int i=0; i < funcionarios.size(); i++){
-            if(funcionarios.get(i).getNome().equals(nome.toLowerCase())){
+            if(funcionarios.get(i).getNome().toLowerCase().equals(nome)){
                 funcsNome.add((Funcionario) funcionarios.get(i).clone());
             }
         }
